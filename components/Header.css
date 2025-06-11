@@ -1,0 +1,187 @@
+/* General Header Styles */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 10px; /* Further reduced padding */
+	box-sizing: border-box;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.logo-toggle-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between; /* Added to ensure proper spacing */
+	width: 100%;
+}
+
+.logo {
+	margin-right: auto; /* Ensures no extra space between logo and toggle */
+}
+
+.logo img {
+	max-height: 75px; /* Logo size */
+	position: relative;
+	top: 0.5vh;
+	left: 2vw;
+}
+
+/* Navigation Styles */
+nav {
+	display: flex;
+}
+
+nav ul {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	margin-left: 20px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #333;
+	font-size: 18px;
+	padding: 10px;
+	transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+	color: #007bff;
+}
+
+nav ul li a.active {
+	color: #007bff; /* Highlight color for active link */
+	/* font-weight: bold; Optional: make the active link bold */
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 1102;
+	position: relative; /* Make sure it stays within bounds */
+	right: 10px; /* Adjust the right offset to prevent it from going off-screen */
+}
+
+.hamburger {
+	width: 24px;
+	height: 2px;
+	background: #000;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 2px;
+	background: #000;
+	transition: all 0.3s ease-in-out;
+	left: 0;
+}
+
+.hamburger::before {
+	top: -6px;
+}
+
+.hamburger::after {
+	top: 6px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+	header {
+		padding: 8px 8px; /* Reduced padding */
+	}
+
+	.logo img {
+		max-height: 6vh; /* Smaller logo for mobile */
+	}
+
+	/* Show Menu Toggle Button on Small Screens */
+	.menu-toggle {
+		display: block;
+		position: absolute;
+		right: 55px; /* Adjust right offset */
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 70%; /* Better menu width */
+		height: 100vh;
+		background: #fff;
+		box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+		transition: right 0.3s ease-in-out;
+		padding: 60px 20px;
+		flex-direction: column;
+		align-items: flex-start;
+		z-index: 1101;
+		overflow-y: auto; /* Allow scrolling if content overflows */
+	}
+
+	/* Make Menu Active on Toggle */
+	nav.active {
+		right: 0;
+	}
+
+	nav ul {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	nav ul li {
+		margin-left: 0;
+		margin-bottom: 10px;
+	}
+
+	nav ul li a {
+		font-size: 16px;
+		padding: 8px 0;
+		width: 100%;
+	}
+
+	/* Remove any extra background space */
+	nav.active {
+		background-color: #fff; /* Ensures the background fills the whole nav area */
+	}
+
+	.menu-open .hamburger {
+		background: transparent;
+	}
+
+	.menu-open .hamburger::before {
+		transform: rotate(45deg);
+		top: 0;
+	}
+
+	.menu-open .hamburger::after {
+		transform: rotate(-45deg);
+		top: 0;
+	}
+}

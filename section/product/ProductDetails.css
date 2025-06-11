@@ -1,0 +1,120 @@
+.product-details {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 40px 10px; /* Consistent padding */
+	margin: 0 auto; /* Center the container */
+	max-width: 1200px; /* Limit the width */
+	gap: 20px; /* Maintain spacing between items */
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+.product-details-text {
+	flex: 1;
+	max-width: 400px;
+	margin-bottom: 0;
+}
+
+.product-details-text h1 {
+	font-weight: 600;
+	color: #7e8c99;
+	margin-bottom: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+.product-details-text h2 {
+	font-size: 30px;
+	font-weight: 600;
+	color: #222;
+	margin-bottom: 1.8rem;
+	line-height: 1.3;
+}
+
+.product-details-text p {
+	font-size: 15px;
+	line-height: 1.75;
+	color: #555;
+	margin-bottom: 2.5rem;
+}
+
+.product-details-images {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center align images */
+	gap: 1.5rem;
+	max-width: 600px;
+}
+
+.product-image {
+	width: 100%; /* Full width responsive images */
+	height: 500px; /* Retained original image height */
+	border-radius: 8px;
+	object-fit: cover;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+	margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+	.product-details {
+		padding: 30px 50px; /* Adjusted padding for medium screens */
+		gap: 15px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.product-details {
+		flex-direction: column;
+		align-items: center;
+		padding: 20px 30px; /* Reduced padding for smaller screens */
+	}
+
+	.product-details-images {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.product-image {
+		width: 100%; /* Retained image width */
+		height: 400px; /* Kept the original image size */
+		border-radius: 8px;
+	}
+}
+
+@media (max-width: 768px) {
+	.product-details {
+		padding: 10px 20px; /* Further reduced padding */
+	}
+
+	.product-details-images {
+		width: 100%;
+	}
+
+	.product-image {
+		width: 100%; /* Retained image width */
+		height: 200px; /* Kept the original image size */
+		border-radius: 8px;
+		position: relative;
+		top: 4px;
+	}
+}
+
+@media (max-width: 480px) {
+	.product-details-text h2 {
+		font-size: 20px;
+	}
+
+	.product-details-text p {
+		font-size: 13px;
+		line-height: 1.6;
+	}
+
+	.product-image {
+		width: 100%; /* Retained image width */
+		height: 300px; /* Kept the original image size */
+		border-radius: 8px;
+	}
+}

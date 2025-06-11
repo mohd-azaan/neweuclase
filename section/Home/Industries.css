@@ -1,0 +1,135 @@
+/* Global Styles */
+body {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	overflow: auto;
+}
+
+::-webkit-scrollbar {
+	display: none; /* Hide the scrollbar in webkit browsers */
+}
+
+/* Section Styling */
+.industries-section {
+	padding: 10px 20px;
+	background-color: #ffffff;
+}
+
+/* Introduction Text Styling */
+.intro-text {
+	text-align: center; /* Center align the text */
+	margin-bottom: 40px;
+}
+
+/* Ensure h2 is centered */
+.intro-text h2 {
+	font-size: 30px;
+	color: #333;
+	font-weight: 600;
+	margin-bottom: 10px;
+	text-align: center; /* Explicitly center align the h2 */
+}
+
+/* Paragraph Styling */
+.intro-text p {
+	font-size: 16px;
+	color: #555;
+	line-height: 1.6;
+	max-width: 800px;
+	margin: 0 auto;
+	font-weight: bold;
+}
+
+/* Industries Container */
+.industries-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+	max-width: 1200px; /* Optional: Set max-width to limit the layout size */
+	margin: 0 auto; /* Center the cards container */
+}
+
+/* Card Styling */
+.industry-card {
+	background: #fff;
+	border-radius: 12px;
+	width: 48%; /* Three cards per row */
+	padding: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden; /* Ensure the image stays within the card */
+	margin-bottom: 20px;
+}
+
+.industry-card:hover {
+	transform: translateY(-5px) scale(1.05); /* Slightly scale up the card */
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.industry-card img {
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	transition: transform 0.3s ease; /* Smooth transition for image scaling */
+	transform-origin: bottom; /* Image will scale from the bottom */
+}
+
+/* .industry-card:hover img {
+	transform: scale(1.2); /* Scale the image up from the bottom 
+} */
+
+/* Heading Styling for Cards */
+.industry-card h3 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #333;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+
+/* Paragraph Styling for Cards */
+.industry-card p {
+	font-size: 14px;
+	color: #666;
+	line-height: 1.6;
+	margin: 0 0 15px;
+	text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.industry-card {
+		width: 45%; /* Two cards per row for tablets */
+	}
+	.industry-card img {
+		position: relative;
+		top: 5px;
+	}
+	.industry-card h3 {
+		position: relative;
+		top: -5px;
+	}
+}
+
+@media (max-width: 768px) {
+	.industry-card {
+		width: 100%; /* One card per row for mobile devices */
+	}
+}
+
+@media (max-width: 480px) {
+	.industry-card h3 {
+		font-size: 18px; /* Smaller heading for very small screens */
+	}
+
+	.industry-card p {
+		font-size: 14px; /* Smaller paragraph text */
+	}
+}

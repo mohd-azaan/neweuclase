@@ -1,0 +1,22 @@
+/* LearnMoreButton.css */
+.learn-more {
+	margin: 40px auto;
+	display: flex;
+	justify-content: center;
+}
+
+.learn-more-button {
+	background-color: #000000;
+	color: #fff;
+	padding: 12px 24px;
+	text-decoration: none;
+	border-radius: 25px; /* Rounded corners */
+	font-size: 1rem;
+	transition: background-color 0.3s, box-shadow 0.3s;
+	position: relative;
+}
+
+.learn-more-button:hover {
+	background-color: #0056b3;
+	box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3), 0 0 0 8px rgba(0, 123, 255, 0.2);
+}
