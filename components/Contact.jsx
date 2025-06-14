@@ -26,9 +26,9 @@ const Contact = () => {
 		e.preventDefault();
 		setIsSending(true);
 
-		const serviceID = 'service_lbs66wd';
-		const templateID = 'template_bdtxh17';
-		const publicKey = 'eESU8_c7bEh5fhZSb';
+                const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+                const templateID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+                const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
 
 		const templateParams = {
 			from_name: formData.from_name,
