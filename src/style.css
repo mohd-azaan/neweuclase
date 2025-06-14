@@ -34,15 +34,19 @@ body {
 		& .item {
 			position: absolute;
 			inset: 0;
-			& figure {
-				position: absolute;
-				width: 70%;
-				top: 55%;
-				transform: translateY(-50%);
-				& img {
-					width: 80%;
-					transform: rotate(-30deg);
-				}
+                       & figure {
+                                position: absolute;
+                                max-width: 70%;
+                                width: 100%;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: flex;
+                                justify-content: center;
+                                & img {
+                                        width: 100%;
+                                        object-fit: cover;
+                                }
 				&::before {
 					content: '';
 					position: absolute;
@@ -210,13 +214,12 @@ body {
 			transform: translateX(calc(100vw * var(--calculation)));
 			transition: 0.5s;
 			opacity: 0;
-			& figure {
-				& img {
-					transform: rotate(0deg);
-					transition: transform 0.5s;
-					transition-delay: 0.3s;
-				}
-			}
+                        & figure {
+                                & img {
+                                        transition: transform 0.5s;
+                                        transition-delay: 0.3s;
+                                }
+                        }
 			& .content {
 				& .category,
 				h2,
@@ -240,11 +243,11 @@ body {
 			&.active {
 				opacity: 1;
 				transform: translateX(0);
-				& figure {
-					& img {
-						transform: rotate(-20deg);
-					}
-				}
+                                & figure {
+                                        & img {
+                                                /* rotation removed */
+                                        }
+                                }
 				& .content {
 					& .category,
 					h2,
