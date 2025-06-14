@@ -19,7 +19,7 @@ function Carousel() {
 			setActiveIndex((prevIndex) =>
 				prevIndex === lastIndex ? 0 : prevIndex + 1
 			);
-		}, 500000);
+                }, 5000);
 
 		return () => clearInterval(autoPlay);
 	}, [lastIndex]);
