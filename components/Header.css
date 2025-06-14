@@ -1,187 +1,220 @@
-/* General Header Styles */
+/* Modern Header Styles */
 header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: #fff;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0px 10px; /* Further reduced padding */
-	box-sizing: border-box;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  padding: 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
 }
 
 .logo-toggle-container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between; /* Added to ensure proper spacing */
-	width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .logo {
-	margin-right: auto; /* Ensures no extra space between logo and toggle */
+  margin-right: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03);
 }
 
 .logo img {
-	max-height: 75px; /* Logo size */
-	position: relative;
-	top: 0.5vh;
-	left: 2vw;
+  height: 80px;
+  width: auto;
 }
 
 /* Navigation Styles */
-nav {
-	display: flex;
-}
-
 nav ul {
-	display: flex;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav ul li {
-	margin-left: 20px;
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
-	text-decoration: none;
-	color: #333;
-	font-size: 18px;
-	padding: 10px;
-	transition: color 0.3s ease;
+  position: relative;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a7cb9, #3a6ba8);
+  transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-	color: #007bff;
+  color: #4a7cb9;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 nav ul li a.active {
-	color: #007bff; /* Highlight color for active link */
-	/* font-weight: bold; Optional: make the active link bold */
+  color: #4a7cb9;
 }
 
-/* Menu Toggle Button */
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Menu Toggle Button - Modern Design */
 .menu-toggle {
-	display: none;
-	background: none;
-	border: none;
-	cursor: pointer;
-	z-index: 1102;
-	position: relative; /* Make sure it stays within bounds */
-	right: 10px; /* Adjust the right offset to prevent it from going off-screen */
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+  position: relative;
 }
 
 .hamburger {
-	width: 24px;
-	height: 2px;
-	background: #000;
-	position: relative;
-	transition: all 0.3s ease-in-out;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .hamburger::before,
 .hamburger::after {
-	content: '';
-	position: absolute;
-	width: 24px;
-	height: 2px;
-	background: #000;
-	transition: all 0.3s ease-in-out;
-	left: 0;
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  left: 0;
+  transition: all 0.3s ease;
 }
 
 .hamburger::before {
-	top: -6px;
+  top: -8px;
 }
 
 .hamburger::after {
-	top: 6px;
+  top: 8px;
 }
 
-/* Responsive Styles */
+/* Active state for menu toggle */
+.menu-open .hamburger {
+  background: transparent;
+}
+
+.menu-open .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+  background: #4a7cb9;
+}
+
+.menu-open .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+  background: #4a7cb9;
+}
+
+/* Mobile Menu Styles */
 @media (max-width: 768px) {
-	header {
-		padding: 8px 8px; /* Reduced padding */
-	}
+  .header-container {
+    padding: 0 20px;
+    height: 70px;
+	padding-top: 5px;
+  }
 
-	.logo img {
-		max-height: 6vh; /* Smaller logo for mobile */
-	}
+  .logo img {
+    height: 55px;
+  }
 
-	/* Show Menu Toggle Button on Small Screens */
-	.menu-toggle {
-		display: block;
-		position: absolute;
-		right: 55px; /* Adjust right offset */
-	}
+  .menu-toggle {
+    display: block;
+  }
 
-	nav {
-		position: fixed;
-		top: 0;
-		right: -100%;
-		width: 70%; /* Better menu width */
-		height: 100vh;
-		background: #fff;
-		box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-		transition: right 0.3s ease-in-out;
-		padding: 60px 20px;
-		flex-direction: column;
-		align-items: flex-start;
-		z-index: 1101;
-		overflow-y: auto; /* Allow scrolling if content overflows */
-	}
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 80px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1099;
+  }
 
-	/* Make Menu Active on Toggle */
-	nav.active {
-		right: 0;
-	}
+  nav.active {
+    right: 0;
+  }
 
-	nav ul {
-		flex-direction: column;
-		width: 100%;
-	}
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-	nav ul li {
-		margin-left: 0;
-		margin-bottom: 10px;
-	}
+  nav ul li a {
+    font-size: 1rem;
+    padding: 12px 0;
+    display: block;
+  }
 
-	nav ul li a {
-		font-size: 16px;
-		padding: 8px 0;
-		width: 100%;
-	}
+  nav ul li a::after {
+    bottom: 8px;
+  }
+}
 
-	/* Remove any extra background space */
-	nav.active {
-		background-color: #fff; /* Ensures the background fills the whole nav area */
-	}
+/* Animation for menu items */
+@media (max-width: 768px) {
+  nav ul li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+  }
 
-	.menu-open .hamburger {
-		background: transparent;
-	}
+  nav.active ul li {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-	.menu-open .hamburger::before {
-		transform: rotate(45deg);
-		top: 0;
-	}
-
-	.menu-open .hamburger::after {
-		transform: rotate(-45deg);
-		top: 0;
-	}
+  nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
+  nav.active ul li:nth-child(2) { transition-delay: 0.15s; }
+  nav.active ul li:nth-child(3) { transition-delay: 0.2s; }
+  nav.active ul li:nth-child(4) { transition-delay: 0.25s; }
 }
